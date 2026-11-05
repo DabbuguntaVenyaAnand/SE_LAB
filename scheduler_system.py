@@ -1,3 +1,4 @@
+"""Book conference rooms and equipment, and export the schedule."""
 
 import json
 from collections import Counter
@@ -9,7 +10,9 @@ equipment_pool = {"projector": 2, "microphone": 4, "webcam": 1}
 conflicts = []
 RESERVATION_IDS = count(1)
 
+
 def parse_slot(time_slot):
+    """Return start and end hours for a valid HH-HH range."""
     if not isinstance(time_slot, str):
         raise ValueError("Use an hour range such as 09-11.")
     parts = time_slot.split("-")
@@ -23,7 +26,9 @@ def parse_slot(time_slot):
         raise ValueError("Hours must satisfy 00 <= start < end <= 24.")
     return start, end
 
+
 def schedule_room(room_id, time_slot, equipment_list=None):
+    """Book a room only when its time and requested equipment are valid."""
     start, end = parse_slot(time_slot)
     if not isinstance(room_id, str) or not room_id.strip():
         raise ValueError("A room name is required.")
@@ -49,7 +54,9 @@ def schedule_room(room_id, time_slot, equipment_list=None):
     }
     return reservation_id
 
+
 def cancel_reservation(reservation_id):
+    """Release a booking's equipment; return False if the ID is unknown."""
     booking = reservations.pop(reservation_id, None)
     if booking is None:
         return False
@@ -57,15 +64,21 @@ def cancel_reservation(reservation_id):
         equipment_pool[name] += 1
     return True
 
+
 def slot_hours(time_slot):
+    """Return the duration of a validated hour range."""
     start, end = parse_slot(time_slot)
     return end - start
 
+
 def export_schedule(file="schedule.json"):
+    """Write reservations as UTF-8 JSON and close the file reliably."""
     with open(file, "w", encoding="utf-8") as schedule_file:
         json.dump(reservations, schedule_file, indent=2)
 
+
 def log_conflicts(file="conflicts.log"):
+    """Append pending conflicts and display the log using Python."""
     with open(file, "a", encoding="utf-8") as log_file:
         for conflict in conflicts:
             log_file.write(f"{datetime.now()} {conflict}\n")
@@ -73,7 +86,9 @@ def log_conflicts(file="conflicts.log"):
     with open(file, "r", encoding="utf-8") as log_file:
         print(log_file.read(), end="")
 
+
 def main():
+    """Demonstrate booking validation and accept one interactive booking."""
     schedule_room("Board-1", "09-11")
     for room, slot in (
         ("Board-1", "09-11"), ("Huddle-3", "14-12"), ("Huddle-3", 1530)
