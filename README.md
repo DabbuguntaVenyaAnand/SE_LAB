@@ -18,3 +18,4 @@
 | Lab 4 | [Game After](DabbuguntaVenyaAnand_PES1UG24AM074_LAB4_gameafter.mp4) |
 | Lab 4 | [ChatGPT History](DabbuguntaVenyaAnand_PES1UG24AM074_LAB4_history.pdf) |
 | Lab 4 | [Updated code repository](https://github.com/DabbuguntaVenyaAnand/12_maze_runner) |
+| Lab 5 | [Static Code Analysis](https://github.com/DabbuguntaVenyaAnand/L5_12_room_scheduler) |
