@@ -19,3 +19,5 @@
 | Lab 4 | [ChatGPT History](DabbuguntaVenyaAnand_PES1UG24AM074_LAB4_history.pdf) |
 | Lab 4 | [Updated code repository](https://github.com/DabbuguntaVenyaAnand/12_maze_runner) |
 | Lab 5 | [Static Code Analysis](https://github.com/DabbuguntaVenyaAnand/L5_12_room_scheduler) |
+| Lab 6 | [Code and Branch Coverage Analysis](https://github.com/DabbuguntaVenyaAnand/L6_L7_12_cloud_storage_tier/tree/main/Lab%206) |
+| Lab 7 | [Fuzzing for Input Validation Bugs](https://github.com/DabbuguntaVenyaAnand/L6_L7_12_cloud_storage_tier/tree/main/Lab%207) |
