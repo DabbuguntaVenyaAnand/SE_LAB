@@ -22,3 +22,19 @@ Desktop.ini
 # Packaged copies of the submissions
 SE_LAB.zip
 se_lab.zip
+
+# Python caches and local environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.hypothesis/
+.venv/
+venv/
+.coverage
+.coverage.*
+coverage_html/
+htmlcov/
+
+# Scheduler runtime output
+Lab5/schedule.json
+Lab5/conflicts.log
